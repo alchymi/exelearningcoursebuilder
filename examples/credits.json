@@ -1,0 +1,23 @@
+{
+ "parthenon.jpg": {
+  "title": "The Parthenon in Athens.jpg",
+  "artist": "Steve Swayne",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:The_Parthenon_in_Athens.jpg"
+ },
+ "discobole.jpg": {
+  "title": "Discobolus in National Roman Museum Palazzo Massimo alle Terme.JPG",
+  "artist": "Livioandronico2013",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG"
+ },
+ "vase-exekias.jpg": {
+  "title": "Akhilleus Aias MGEt 16757.jpg",
+  "artist": "Exekias",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Akhilleus_Aias_MGEt_16757.jpg"
+ }
+}
