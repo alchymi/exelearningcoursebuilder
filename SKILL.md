@@ -1,5 +1,5 @@
 ---
-name: elpx-course
+name: exelearning-course-builder
 description: Create eXeLearning courses as .elpx files (interactive e-learning packages with pages, texts, images, quizzes and games) from a topic, a lesson plan or existing documents. Use this skill whenever the user asks for a course, lesson, module, learning sequence, quiz set or revision activity "in eXeLearning", "en elpx", "au format .elpx/.elp", "pour eXe", or wants to generate, extend or rebuild an eXeLearning project or its iDevices (modules) — even when they only say "fais-moi un cours sur…" in a workspace that contains eXeLearning or .elpx files. Also use it to add activities (crossword, true/false, drag and drop, interactive video, map, escape-game padlock…) to a course built with this skill.
 ---
 
@@ -81,6 +81,13 @@ The generator makes it easy to produce a lot of modules; the quality comes from 
 - Game answers are typed by learners: prefer single words without ambiguity for `crossword`, `guess`, `padlock`, `challenge`; `wordSearch`/`crossword` words in capitals without accents or spaces.
 
 ## Images
+
+For AI-generated training illustrations, read [references/illustrations.md](references/illustrations.md).
+Decide whether generation serves the learning objective, choose a consistent visual style, and write
+the scene brief before calling `scripts/illustrate.js`. Its offline `plan` command composes the prompt;
+`generate` calls Ideogram v3 via fal.ai and saves the image for `img`/`fig` integration.
+Prefer documentary sources for evidence and SVG/HTML for precise diagrams. Local credentials stay
+outside the skill; use `FAL_KEY` or `--key-file <private-credential-file>`.
 
 `scripts/commons.js` searches Wikimedia Commons and downloads images with their licence, writing `credits.json` beside the course file (used by `m.credits()`, `m.gallery`, `m.map`):
 

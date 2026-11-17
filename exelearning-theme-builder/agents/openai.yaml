@@ -1,0 +1,4 @@
+interface:
+  display_name: "eXeLearning Theme Builder"
+  short_description: "Créer des thèmes eXeLearning adaptés au mobile"
+  default_prompt: "Utilise $exelearning-theme-builder pour créer un thème eXeLearning à partir de ma charte, avec une navigation adaptée au mobile."

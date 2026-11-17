@@ -1,6 +1,11 @@
 # exelearningcoursebuilder
 
-Une *skill* pour [Claude Code](https://claude.com/claude-code) qui crée des cours [eXeLearning](https://exelearning.net/) au format `.elpx` : pages, textes, images, quiz et jeux interactifs, à partir d'un simple sujet ou d'un plan de cours.
+Deux skills pour Codex et [Claude Code](https://claude.com/claude-code) : créer des cours [eXeLearning](https://exelearning.net/) au format `.elpx` et concevoir leurs thèmes graphiques.
+
+| Skill | Emplacement | Usage |
+|---|---|---|
+| `exelearning-course-builder` | [Racine du dépôt](SKILL.md) | Cours, activités et illustrations |
+| `exelearning-theme-builder` | [exelearning-theme-builder/](exelearning-theme-builder/SKILL.md) | Charte graphique, navigation mobile et thèmes ZIP |
 
 *A Claude Code skill that builds eXeLearning courses (`.elpx`) from a topic or lesson plan.*
 
@@ -11,10 +16,13 @@ Vous demandez par exemple « fais-moi un cours eXeLearning sur la Révolution fr
 - **48 types de modules (iDevices)** : texte, vrai/faux, QCM, mots croisés, mots mêlés, glisser-déposer, carte interactive, vidéo interactive, cadenas, défi, quiz adaptatif, rapport de progression, etc. La liste complète est dans [references/modules.md](references/modules.md).
 - **12 langues d'interface** pour les boutons et messages des jeux : français, allemand, anglais, espagnol, italien, portugais, catalan, basque, galicien, roumain, valencien, espéranto.
 - **Un cours d'exemple** avec un appel de chaque module : [examples/course.js](examples/course.js).
+- **Illustrations Ideogram v3 via fal.ai** : décision pédagogique, direction artistique et génération depuis un brief, avec provenance. La planification est hors ligne ; la génération nécessite une clé personnelle et est facturée par fal.ai. Voir [references/illustrations.md](references/illustrations.md).
+
+La skill de thèmes contient un thème de départ **Skilltech — Chapters** : police locale Plus Jakarta Sans, palette jaune/bleu nuit, menu hamburger fermé par défaut sur mobile et ordinateur, recherche et sous-chapitres repliables. Elle fournit un générateur de ZIP portable et explique comment vérifier le rendu dans l'éditeur, l'export et le lecteur public. Les licences des ressources sont incluses ; les projets privés et clés API ne font pas partie du dépôt.
 
 ## Prérequis
 
-- [Claude Code](https://claude.com/claude-code)
+- Codex ou [Claude Code](https://claude.com/claude-code)
 - Node.js 18 ou plus récent
 - Docker avec un conteneur eXeLearning v4 démarré, par exemple :
   ```bash
@@ -24,23 +32,37 @@ Vous demandez par exemple « fais-moi un cours eXeLearning sur la Révolution fr
 
 ## Installation
 
-Clonez ce dépôt dans le dossier des skills de Claude Code, sous le nom `elpx-course` :
+Le dépôt conserve la skill de cours à sa racine. Clonez-le sous le nom `exelearning-course-builder`, puis copiez la skill de thèmes dans un dossier voisin.
+
+Pour Codex dans un projet (PowerShell) :
+
+```powershell
+git clone https://github.com/alchymi/exelearningcoursebuilder.git .agents/skills/exelearning-course-builder
+Copy-Item .agents/skills/exelearning-course-builder/exelearning-theme-builder .agents/skills/exelearning-theme-builder -Recurse
+npm install --prefix .agents/skills/exelearning-course-builder/scripts
+```
+
+Pour Claude Code :
 
 ```bash
 # Linux / macOS
-git clone https://github.com/alchymi/exelearningcoursebuilder.git ~/.claude/skills/elpx-course
+git clone https://github.com/alchymi/exelearningcoursebuilder.git ~/.claude/skills/exelearning-course-builder
+cp -R ~/.claude/skills/exelearning-course-builder/exelearning-theme-builder ~/.claude/skills/exelearning-theme-builder
 
 # Windows (PowerShell)
-git clone https://github.com/alchymi/exelearningcoursebuilder.git "$env:USERPROFILE\.claude\skills\elpx-course"
+git clone https://github.com/alchymi/exelearningcoursebuilder.git "$env:USERPROFILE\.claude\skills\exelearning-course-builder"
+Copy-Item "$env:USERPROFILE\.claude\skills\exelearning-course-builder\exelearning-theme-builder" "$env:USERPROFILE\.claude\skills\exelearning-theme-builder" -Recurse
 ```
 
 Pour activer le contrôle automatique dans un navigateur (facultatif, utilise Edge ou Chrome déjà installé) :
 
 ```bash
-npm install --prefix ~/.claude/skills/elpx-course/scripts
+npm install --prefix ~/.claude/skills/exelearning-course-builder/scripts
 ```
 
-Redémarrez Claude Code : la skill `elpx-course` apparaît dans la liste et se déclenche quand vous demandez un cours eXeLearning. Vous pouvez aussi taper `/elpx-course`.
+Rouvrez une session de votre agent si nécessaire pour actualiser la découverte des skills. Demandez un cours ou un thème eXeLearning ; dans Codex, vous pouvez invoquer `$exelearning-course-builder` ou `$exelearning-theme-builder`.
+
+Le générateur de ZIP de thèmes fourni est un script PowerShell ; les thèmes eux-mêmes sont des fichiers CSS/JS portables. Sur un autre système, créez un ZIP sans dossier parent et avec des chemins `/`. Ne stockez jamais vos clés API dans le dépôt : utilisez `FAL_KEY` ou un fichier privé passé à `--key-file`.
 
 ## Utilisation sans Claude
 
@@ -66,6 +88,7 @@ node scripts/check.js examples                             # ouvre chaque page e
 | [scripts/](scripts/) | Générateur (`build.js`), contrôle navigateur (`check.js`), téléchargement d'images libres (`commons.js`) |
 | [references/](references/) | Paramètres de chaque module, fonctionnement du format `.elpx` |
 | [examples/](examples/) | Cours de démonstration et ses fichiers |
+| [exelearning-theme-builder/](exelearning-theme-builder/) | Skill de thèmes, thème de départ et script ZIP |
 
 ## Crédits
 

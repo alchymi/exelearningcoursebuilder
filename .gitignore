@@ -1,3 +1,9 @@
 node_modules/
 .elpx-build/
 *.elpx
+.env
+.env.*
+!.env.example
+tocken.git
+tokens.git
+*.generation.json

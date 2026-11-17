@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<theme>
+    <name>skilltech-drawer</name>
+    <title>Skilltech — Chapters</title>
+    <version>20261117</version>
+    <compatibility>4.0.5</compatibility>
+    <author>Skilltech; adapted from eXeLearning / Ignacio Gros</author>
+    <license>Creative Commons by-sa</license>
+    <license-url>http://creativecommons.org/licenses/by-sa/4.0/</license-url>
+    <description>Skilltech.tools palette and Plus Jakarta Sans. Hamburger chapter drawer with search, collapsible sections and keyboard navigation. Base CSS by Ignacio Gros / eXeLearning, CC BY-SA 4.0. Font: Plus Jakarta Sans by Tokotype, SIL OFL 1.1.
+
+iDevice icons by Francisco Javier Pulido Cuadrado, under the same license as this style (Creative Commons BY-SA 4.0, http://creativecommons.org/licenses/by-sa/4.0/).
+
+Creative Commons license badges (img/licenses.gif) are trademarks of Creative Commons (https://creativecommons.org) and are used under their trademark policy (https://creativecommons.org/policies/). They are not covered by this style's CC BY-SA license.</description>
+</theme>
